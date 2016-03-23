@@ -1,0 +1,1041 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="one,Emacs," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="前言why Emacs
+逼格高。当你编程时小伙伴问你用的什么编辑器时，你默默的说出一个古董般的名字，这感觉还是很酸爽的。
+师兄用。统一工具所带来的好处是，当你遇到问题后，可以直接将键盘交给师兄，然后看他在你的电脑上用200apm的手速帮你处理问题，并给你悉心指导。
+Eshell。自从有了Eshell，连上服务器的第一件事就是打开Emacs。
+Elisp。什么？貌似还能多学一门很奇怪的语言。
+虽然我">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一周成为Emacs新手">
+<meta property="og:url" content="http://viiyu.github.io/2016/03/23/one-week-into-emacs/index.html">
+<meta property="og:site_name" content="Void">
+<meta property="og:description" content="前言why Emacs
+逼格高。当你编程时小伙伴问你用的什么编辑器时，你默默的说出一个古董般的名字，这感觉还是很酸爽的。
+师兄用。统一工具所带来的好处是，当你遇到问题后，可以直接将键盘交给师兄，然后看他在你的电脑上用200apm的手速帮你处理问题，并给你悉心指导。
+Eshell。自从有了Eshell，连上服务器的第一件事就是打开Emacs。
+Elisp。什么？貌似还能多学一门很奇怪的语言。
+虽然我">
+<meta property="og:image" content="http://aligitlab.oss-cn-hangzhou-zmf.aliyuncs.com/uploads/zhixiao.yw/rookie_manual/3924189273/image.png">
+<meta property="og:image" content="http://aligitlab.oss-cn-hangzhou-zmf.aliyuncs.com/uploads/zhixiao.yw/rookie_manual/26953b1346/image.png">
+<meta property="og:image" content="http://aligitlab.oss-cn-hangzhou-zmf.aliyuncs.com/uploads/zhixiao.yw/rookie_manual/b46ba97963/image.png">
+<meta property="og:updated_time" content="2016-03-23T13:22:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一周成为Emacs新手">
+<meta name="twitter:description" content="前言why Emacs
+逼格高。当你编程时小伙伴问你用的什么编辑器时，你默默的说出一个古董般的名字，这感觉还是很酸爽的。
+师兄用。统一工具所带来的好处是，当你遇到问题后，可以直接将键盘交给师兄，然后看他在你的电脑上用200apm的手速帮你处理问题，并给你悉心指导。
+Eshell。自从有了Eshell，连上服务器的第一件事就是打开Emacs。
+Elisp。什么？貌似还能多学一门很奇怪的语言。
+虽然我">
+<meta name="twitter:image" content="http://aligitlab.oss-cn-hangzhou-zmf.aliyuncs.com/uploads/zhixiao.yw/rookie_manual/3924189273/image.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 一周成为Emacs新手 | Void </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Void</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">on the way to a smile</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                一周成为Emacs新手
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-23T20:51:29+08:00" content="2016-03-23">
+              2016-03-23
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><h4 id="why-Emacs"><a href="#why-Emacs" class="headerlink" title="why Emacs"></a>why Emacs</h4><ul>
+<li>逼格高。当你编程时小伙伴问你用的什么编辑器时，你默默的说出一个古董般的名字，这感觉还是很酸爽的。</li>
+<li>师兄用。统一工具所带来的好处是，当你遇到问题后，可以直接将键盘交给师兄，然后看他在你的电脑上用200apm的手速帮你处理问题，并给你悉心指导。</li>
+<li>Eshell。自从有了Eshell，连上服务器的第一件事就是打开Emacs。</li>
+<li>Elisp。什么？貌似还能多学一门很奇怪的语言。</li>
+<li>虽然我很喜欢<code>hjkl</code>，但我不喜欢按<code>ESC</code>。</li>
+<li>听说这是一个伪装成编辑器的操作系统。</li>
+</ul>
+<h4 id="why-THIS"><a href="#why-THIS" class="headerlink" title="why THIS"></a>why THIS</h4><p>一开始接触Emacs是手足无措的。虽然有<a href="https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/guide-zh.org" target="_blank" rel="external">一年成为Emacs高手</a>这样的牛文，可以给出很多很棒的建议。但是，在我们所需要面对实际场景中还是有些别扭：我很赞同直接去clone别人配置的方法，但是很多东西clone下来以后，研究、理解、熟悉快捷键都需要时间，到最后有可能我们并不需要这样的配置；更多情况是，高手和大师的配置大都缺少说明，上手时间长，每个功能靠什么插件实现都不够明晰。<br>因此，我对于学习Emacs产生了新的要求：</p>
+<ul>
+<li><code>快速上手</code>——有清晰的配置说明文档，针对操作、插件</li>
+<li><code>功能清晰</code>——适应服务器cpp编程环境（补全，缩进，跳转，查找），能够兼容python的缩进（补全暂未着手实现）</li>
+</ul>
+<p>针对我这一个月的Emacs学习和使用情况，根据现有服务器线上环境，我自己配置了一个满足我的需求的Emacs编辑配置，见<a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#x6f;&#58;&#103;&#x69;&#116;&#64;&#103;&#105;&#x74;&#108;&#x61;&#x62;&#x2e;&#x61;&#x6c;&#105;&#98;&#x61;&#x62;&#x61;&#x2d;&#105;&#x6e;&#99;&#x2e;&#x63;&#111;&#x6d;&#58;&#122;&#x68;&#x69;&#x78;&#x69;&#97;&#111;&#46;&#x79;&#x77;&#x2f;&#101;&#109;&#97;&#99;&#x73;&#x2e;&#x64;&#46;&#103;&#105;&#116;">&#103;&#x69;&#116;&#64;&#103;&#105;&#x74;&#108;&#x61;&#x62;&#x2e;&#x61;&#x6c;&#105;&#98;&#x61;&#x62;&#x61;&#x2d;&#105;&#x6e;&#99;&#x2e;&#x63;&#111;&#x6d;&#58;&#122;&#x68;&#x69;&#x78;&#x69;&#97;&#111;&#46;&#x79;&#x77;&#x2f;&#101;&#109;&#97;&#99;&#x73;&#x2e;&#x64;&#46;&#103;&#105;&#116;</a>，其主要理念是：</p>
+<ul>
+<li>用<code>尽可能少</code>的插件实现线上基本编程工具的基本功能</li>
+<li>能有清晰明了的说明文档(<code>本文</code>)，可以解释针对插件配置时为什么这么选和如何快速上手使用的问题。</li>
+</ul>
+<p>其中使用的插件，它们的基本功能以及我选择它们的原因都会在本文中进行阐述。希望能够指导大家达到忽略环境变化快速上手编程的目的，一周入门成为Emacs新手，剩下的时间，可以根据自己造化再慢慢走向高手之路。</p>
+<a id="more"></a>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><h4 id="版本及安装"><a href="#版本及安装" class="headerlink" title="版本及安装"></a>版本及安装</h4><ul>
+<li>强烈<code>建议</code>使用24.5版本的Emacs<ul>
+<li>更好的插件支持，比如helm和company</li>
+<li>集成<code>package</code>管理器</li>
+<li>更高版本且<code>自集成</code>的cedet</li>
+<li>本文及其配置都是在这个版本下进行的</li>
+</ul>
+</li>
+<li>在Mac和Win下安装，直接去找可执行安装文件即可，这里就不赘述，主要讲一下服务器上安装。一般服务器上都已经安装好了Emacs，不过版本较低，大概在23.2左右。<ol>
+<li>在<a href="http://ftp.gnu.org/gnu/emacs/" target="_blank" rel="external">http://ftp.gnu.org/gnu/emacs/</a>下载需要的源码包：<code>wget http://ftp.gnu.org/gnu/emacs/emacs-24.5.tar.gz</code></li>
+<li>解压：<code>tar -xzvf emacs-24.5.tar.gz</code></li>
+<li><code>./configure</code>。缺啥包安装啥包就行，都安装了还是有缺少，直接–without掉。我遇到的是<code>libXpm,libgif,libtiff</code>三个包没有，直接根据提示信息without掉是没问题的。</li>
+<li><code>make</code></li>
+<li><code>make install</code>，如果报文件创建失败的permission，就上管理员账户安装。这一步过后，会将emacs-24.5安装在在<code>/usr/local/bin/</code>中，试着在命令行输入<code>emacs-24.5</code>应该就可以打开我们新版本的Emacs了。</li>
+</ol>
+</li>
+<li>打开Emacs后的第一件事，强烈建议使用<code>C-h t</code>命令打开Emacs Tutorial，花半个小时通读一遍，这样，对于Emacs的许多疑惑都会得到解答，上手更快。</li>
+</ul>
+<h4 id="buffer和window"><a href="#buffer和window" class="headerlink" title="buffer和window"></a>buffer和window</h4><ul>
+<li>buffer是指一个内容缓存区。<ul>
+<li>其并不代表一个文件。</li>
+<li>任何显示的内容都是以buffer的形式存在的，无论是Eshell还是普通文件。</li>
+</ul>
+</li>
+<li>window是用来显示buffer的一块区域。<ul>
+<li>关闭一个window并不等于关闭了一个buffer。</li>
+</ul>
+</li>
+</ul>
+<h4 id="模式"><a href="#模式" class="headerlink" title="模式"></a>模式</h4><p>在Emacs中，并没有像Vim那样明确的模式概念，任何情况下，我们都处于编辑的状态，但是区别在于和需要注意的是，当前在哪个buffer中进行编辑及操作。<br>针对不同的buffer有不同的快捷操作方法，比如在<code>buffer list</code>用<code>d</code>和<code>x</code>快速删除多个buffer。再比如在helm中用<code>C-p</code>和<code>C-n</code>进行上下项的选择。</p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>目前选用了如下几个插件，针对Emacs的改动也仅限于这些，好处是看看快捷键很快就能上手了，缺点就是功能还不够全。其详细功能讲解及配置内容会在本文<a href="#4">第四部分</a>进行说明和讲解。</p>
+<ul>
+<li>helm：一个非常强大且全面的插件。首先是一个minibuffer扩展，可以完全用helm替换默认的<code>M-x</code>和<code>C-x f</code>，支持模糊查找，显示的功能更全，定位更快。本文中只使用了Helm非常少的功能。(<code>目前我已改回用smex+ido，更快更简洁</code>)</li>
+<li>company：自动补全工具，良好的支持Emacs集成的semantic词法分析工具。</li>
+<li>window-numbering：快速切换窗口的工具。</li>
+<li>google-c-style：谷歌的代码规范。</li>
+<li>cedet：Emacs自集成的开发环境工具集。</li>
+</ul>
+<h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><p>首先，我们需要了解Emacs中快捷键的起点键和快捷键的描述方法，如我们关闭Emacs的快捷键描述为<code>C-x C-c</code>，操作为两步：CTRL+x后CTRL+c，再比如，保存buffer快捷键<code>C-x s</code>就是CTRL+x后单独按s，再比如，我们打开Emacs的命令行使用命令<code>M-x</code>，其中<code>M</code>代表meta键，在不同的系统上这个键可能会不同，一般为<code>ALT</code>，不过我一开始在Mac上使用的时候，这个键为<code>ESC</code>，不过这个可以在系统里更改，再比如CTRL不好按，就可以把它和caps键呼唤，习惯以后就可以入手价值不菲的编程大杀器<code>HHKB--HAPPY HACKING KEYBOARD</code>。配上Mac再来套彩虹色键帽，啧啧。</p>
+<h4 id="关闭Emacs"><a href="#关闭Emacs" class="headerlink" title="关闭Emacs"></a>关闭Emacs</h4><p>请按<code>C-x c</code>。</p>
+<h4 id="光标移动"><a href="#光标移动" class="headerlink" title="光标移动"></a>光标移动</h4><table>
+<thead>
+<tr>
+<th>keys</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-p,C-n,C-b,C-f</td>
+<td>光标上下左右</td>
+</tr>
+<tr>
+<td>C-a,C-e,M-a,M-e</td>
+<td>行首行尾，句首句尾</td>
+</tr>
+<tr>
+<td>M-&gt;,M-&lt;&lt;</td>
+<td>文件首文件尾</td>
+</tr>
+</tbody>
+</table>
+<h4 id="文本编辑——选择复制粘贴剪切删除"><a href="#文本编辑——选择复制粘贴剪切删除" class="headerlink" title="文本编辑——选择复制粘贴剪切删除"></a>文本编辑——选择复制粘贴剪切删除</h4><table>
+<thead>
+<tr>
+<th>keys</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-SPC</td>
+<td>标记</td>
+</tr>
+<tr>
+<td>C-w,M-w</td>
+<td>剪切，复制标记内容</td>
+</tr>
+<tr>
+<td>C-y,M-y</td>
+<td>粘贴，粘贴历史内容（第一个操作后如果不是自己想要的可以通过第二个操作循环上选）</td>
+</tr>
+<tr>
+<td>C-b,M-d</td>
+<td>删除后一个字符，删除后一个词</td>
+</tr>
+<tr>
+<td>C-k</td>
+<td>删除到行尾</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Tips：如何快速复制一行？<ul>
+<li><code>C-a,C-k,C-y</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h4><table>
+<thead>
+<tr>
+<th>keys</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-s</td>
+<td>向后查找，重复命令光标会向后持续搜索</td>
+</tr>
+<tr>
+<td>C-r</td>
+<td>向前查找，重复命令光标会向前持续搜索</td>
+</tr>
+<tr>
+<td>M-x,grep-find</td>
+<td>在目录内查找所有文件中的指定内容</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Tips：如何快速查找光标所在的Tag？<ul>
+<li>将光标移动到单词首，<code>C-s</code>（C-r）打开搜索，<code>C-w</code>选中单词（重复命令会持续向后选中），<code>C-s</code>进行搜索</li>
+</ul>
+</li>
+</ul>
+<h4 id="窗口分割"><a href="#窗口分割" class="headerlink" title="窗口分割"></a>窗口分割</h4><table>
+<thead>
+<tr>
+<th>keys</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-x 1</td>
+<td>关闭其他窗口</td>
+</tr>
+<tr>
+<td>C-x 2</td>
+<td>垂直分割窗口</td>
+</tr>
+<tr>
+<td>C-x 3</td>
+<td>水平分割窗口</td>
+</tr>
+<tr>
+<td>C-x 0</td>
+<td>关闭当前窗口</td>
+</tr>
+<tr>
+<td>C-x o</td>
+<td>转到下一个窗口</td>
+</tr>
+</tbody>
+</table>
+<h4 id="buffer与file"><a href="#buffer与file" class="headerlink" title="buffer与file"></a>buffer与file</h4><table>
+<thead>
+<tr>
+<th>keys</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-x b</td>
+<td>打开buffer列表</td>
+</tr>
+<tr>
+<td>C-x C-f，C-x 4 f</td>
+<td>打开一个文件，在新窗口打开一个文件</td>
+</tr>
+<tr>
+<td>C-x k</td>
+<td>关闭当前buffer</td>
+</tr>
+<tr>
+<td>C-x s</td>
+<td>存储当前buffer</td>
+</tr>
+</tbody>
+</table>
+<h3 id="配置一个可编程工具——补全，跳转，引用"><a href="#配置一个可编程工具——补全，跳转，引用" class="headerlink" title="配置一个可编程工具——补全，跳转，引用"></a>配置一个可编程工具——补全，跳转，引用</h3><h4 id="从CEDET说起"><a href="#从CEDET说起" class="headerlink" title="从CEDET说起"></a>从CEDET说起</h4><p><a href="http://cedet.sourceforge.net/symref.shtml" target="_blank" rel="external">CEDET</a>是Collection of Emacs Development Environment Tools的缩写，目前最新的独立版本为1.1，并且该版本是最后一个独立发布的版本，更高版本都已经集成在了较新版Emacs之中，<strong>查看自己CEDET版本</strong>，可以在<code>M-x</code>后输入<code>cedet-version</code>即可，如下图。</p>
+<p><img src="http://aligitlab.oss-cn-hangzhou-zmf.aliyuncs.com/uploads/zhixiao.yw/rookie_manual/3924189273/image.png" alt="image"></p>
+<p>可以看到，Emacs集成的CEDET拥有这样一些工具：</p>
+<ul>
+<li>Semantic，词法分析器，本文主要依靠该工具进行代码分析，作为自动补全工具后端，同时也使用了该工具的快速跳转和引用查询功能</li>
+<li>EDE，项目管理工具，通过设置项目的根目录，头文件目录和系统头文件目录，为Semantic提供支持。<ul>
+<li>Tips:如何获得系统的c++头文件目录:<code>echo &quot;&quot; | g++ -v -x c++ -E -</code></li>
+</ul>
+</li>
+<li>EIEIO，没弄懂，:P。</li>
+<li>SRecode，代码模板管理器，暂未使用。</li>
+<li>eassist，提供.h/.cpp切换和taglist功能。</li>
+</ul>
+<p>具体配置文件见lisp/init-cedet.el，其主要功能为：</p>
+<ul>
+<li>代码分析，生成db文件</li>
+<li>定义跳转</li>
+<li>引用查找</li>
+<li>在minibuffer里显示光标所在函数的summary。</li>
+</ul>
+<p>主要功能绑定快捷键如下：</p>
+<table>
+<thead>
+<tr>
+<th>keys</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-c j</td>
+<td>根据光标tag跳转到定义</td>
+</tr>
+<tr>
+<td>C-c,C-r</td>
+<td>查找所有引用</td>
+</tr>
+<tr>
+<td>C-c t</td>
+<td>在.h和.cpp文件中跳转</td>
+</tr>
+<tr>
+<td>C-c e</td>
+<td>列出当前文件的method list，可以进行选择快速定位</td>
+</tr>
+</tbody>
+</table>
+<p>因为后面补全采用了company-mode，所以在快捷键设置上，我取消了<code>M-TAB</code>和<code>C-M-i</code>这两个原来绑定在Semantic补全上快捷键。</p>
+<h4 id="company-mode"><a href="#company-mode" class="headerlink" title="company-mode"></a>company-mode</h4><p>作为一个选择综合症患者，一开始在这个和ac-complete，auto-complete之间纠结了很久。网上也有许多关于他们之间优劣的辩论，我主要因为这个东西配置方便，跟Semantic结合不错，速度也还好而选择了它。它可以支持Elisp, Clang, Semantic, Eclim, Ropemacs, Ispell, CMake, BBDB, Yasnippet, dabbrev, etags, gtags, 文件, 关键字等多种backends，并且会自动选用当前可以使用的backends，非常方便效果如下：</p>
+<p><img src="http://aligitlab.oss-cn-hangzhou-zmf.aliyuncs.com/uploads/zhixiao.yw/rookie_manual/26953b1346/image.png" alt="image"></p>
+<p>配置代码也相当简短，见lisp/init-company.el。根据注释，大致可以知道每一个语句的意义。其中require-package是定义的一个函数，主要用途是根据package-name安装一个package，详见lisp/init-elpa.el文件。</p>
+<figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;;;; init-company.el</span></span><br><span class="line"><span class="comment">;;company-mode</span></span><br><span class="line"><span class="comment">;; install company-mode</span></span><br><span class="line">(<span class="name">require-package</span> <span class="symbol">'company</span>)</span><br><span class="line"><span class="comment">;; include company</span></span><br><span class="line">(<span class="name"><span class="builtin-name">require</span></span> <span class="symbol">'company</span>)</span><br><span class="line"><span class="comment">;; 将显示延时关掉</span></span><br><span class="line">(<span class="name">setq</span> company-idle-delay <span class="number">0</span>)</span><br><span class="line"><span class="comment">;; 开启补全</span></span><br><span class="line">(<span class="name">setq</span> company-mode t)</span><br><span class="line"><span class="comment">;; 添加全局补全</span></span><br><span class="line">(<span class="name">add-hook</span> <span class="symbol">'after-init-hook</span> <span class="symbol">'global-company-mode</span>)</span><br><span class="line"><span class="comment">;; 定义一个本文件的外部调用接口</span></span><br><span class="line">(<span class="name"><span class="builtin-name">provide</span></span> <span class="symbol">'init-company</span>)</span><br></pre></td></tr></table></figure>
+<p>快捷键定义，在company候选列表中:</p>
+<table>
+<thead>
+<tr>
+<th>keys</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M-n,M-p</td>
+<td>company列表里选项上下移动</td>
+</tr>
+<tr>
+<td>M-(digit)</td>
+<td>快速选中列表中的项</td>
+</tr>
+<tr>
+<td>RET</td>
+<td>补全</td>
+</tr>
+<tr>
+<td>TAB</td>
+<td>补全公共部分</td>
+</tr>
+<tr>
+<td>M-TAB</td>
+<td>绑定到了company-complete-common上，可以手动调出company补全列表</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Helm"><a href="#Helm" class="headerlink" title="Helm"></a>Helm</h4><p>Helm是一个minibuffer的增强工具，可以替代原有的<code>M-x</code>，<code>C-x C-f</code>，<code>C-x b</code>的功能，还具备如下几个优良特性：</p>
+<ul>
+<li>模糊查找，可以通过键入内容来筛选当前列表中的内容</li>
+<li>支持历史记录，可以快速选择以前使用过的文件或者命令</li>
+<li>可以显示命令所绑定的快捷键，这个对于新手记快捷键还是蛮好的，有些命令偶尔看到了记上一眼，两三次就记住了</li>
+<li>显示更加直观，更cool</li>
+</ul>
+<p>效果如下，已<code>M-x</code>为例：</p>
+<p><img src="http://aligitlab.oss-cn-hangzhou-zmf.aliyuncs.com/uploads/zhixiao.yw/rookie_manual/b46ba97963/image.png" alt="image"></p>
+<p>基本操作如下：</p>
+<table>
+<thead>
+<tr>
+<th>keys</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>C-n,C-p</td>
+<td>Helm列表里选项上下移动</td>
+</tr>
+<tr>
+<td>C-l,C-j</td>
+<td>回到上一层目录，进入所选目录（C-x C-f时）</td>
+</tr>
+<tr>
+<td>C-o</td>
+<td>选择另外一个列表，用在历史内容和所有内容切换的时候</td>
+</tr>
+<tr>
+<td>RET</td>
+<td>打开文件，使用命令</td>
+</tr>
+<tr>
+<td>C-SPC</td>
+<td>标记选项</td>
+</tr>
+</tbody>
+</table>
+<p>helm是一个十分强大的工具，在不同的状态下其快捷键也不同，十分丰富。每次显示出Helm，其都会显示小部分操作命令在状态栏，同时也会指示用户，可以通过<code>C-m h</code>来获得更多信息。</p>
+<h4 id="window-numbering"><a href="#window-numbering" class="headerlink" title="window-numbering"></a>window-numbering</h4><p>通过快捷键迅速选定窗口。其编号主要是从由左向右由上向下的顺序。快捷键也只有一组<code>M-(digit)</code>。</p>
+<h4 id="其他特性"><a href="#其他特性" class="headerlink" title="其他特性"></a><em>其他特性</em></h4><ul>
+<li>用y和n来代替yes和no</li>
+<li>取消了烦人的自动备份</li>
+<li>自定义了<code>grep-find</code>命令，在Semantic不管用的时候，用这个吧。</li>
+<li>Tab为什么没有用了？<ul>
+<li>tab被缩进给占用了，可以试试<code>M-i</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="5-插件管理"><a href="#5-插件管理" class="headerlink" title="5 插件管理"></a>5 插件管理</h3><p>我采用的Emacs配置结构为：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── elpa</span><br><span class="line">│   ├── archives</span><br><span class="line">│   ├── async-<span class="number">20150724.2211</span></span><br><span class="line">│   ├── company-<span class="number">20150727.1415</span></span><br><span class="line">│   ├── ggtags-<span class="number">0.8</span>.<span class="number">10</span></span><br><span class="line">│   ├── google-c-style-<span class="number">20140929.1118</span></span><br><span class="line">│   ├── helm-<span class="number">20150805.54</span></span><br><span class="line">│   ├── helm-core-<span class="number">20150805.206</span></span><br><span class="line">│   └── smex-<span class="number">3.0</span></span><br><span class="line">├── config</span><br><span class="line">├── eshell</span><br><span class="line">│   ├── history</span><br><span class="line">│   └── lastdir</span><br><span class="line">├── init<span class="selector-class">.el</span></span><br><span class="line">├── lisp</span><br><span class="line">│   ├── eassist<span class="selector-class">.el</span></span><br><span class="line">│   ├── hober-theme<span class="selector-class">.el</span></span><br><span class="line">│   ├── init-cedet<span class="selector-class">.el</span></span><br><span class="line">│   ├── init-company<span class="selector-class">.el</span></span><br><span class="line">│   ├── init-elpa<span class="selector-class">.el</span></span><br><span class="line">│   ├── init-ggtags<span class="selector-class">.el</span></span><br><span class="line">│   ├── init-google-c-style<span class="selector-class">.el</span></span><br><span class="line">│   ├── init-helm<span class="selector-class">.el</span></span><br><span class="line">│   ├── init-smex<span class="selector-class">.el</span></span><br><span class="line">│   ├── init-utils<span class="selector-class">.el</span></span><br><span class="line">│   └── window-numbering<span class="selector-class">.el</span></span><br><span class="line">├── recentf</span><br><span class="line">└── semanticdb</span><br></pre></td></tr></table></figure>
+<p>其中：</p>
+<ul>
+<li>init.el为Emacs启动时加载的文件</li>
+<li>config用来存储ede的project配置</li>
+<li>elpa为package管理器安装管理的包文件夹</li>
+<li>lisp为手动下载或设置的插件配置文件<ul>
+<li>以init开头的为各个模块的初始化文件，其中过程主要为先通过package下载安装，然后为配置内容，最后提供一个接口供init.el调用</li>
+</ul>
+</li>
+<li>剩下的是Emacs或其插件自动生成的文件，可以不用在意</li>
+</ul>
+<p>我在<code>init-elpa.el</code>配置了包管理器的下载源，并定义了两个通过package-name进行包安装的接口。在init.el文件中，直接将lisp文件夹添加进Emacs的<code>load-path</code>里即可。<br>在第一次启动Emacs时，其先会打开配置文件init.el，然后通过init.el调用lisp里的各个文件，插件包也会自动下载并安装到elpa文件夹中。</p>
+<h3 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h3><ul>
+<li><a href="http://emacser.com/daemon.htm" target="_blank" rel="external">加速Emacs启动方法的技巧</a></li>
+<li><a href="https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/guide-zh.org" target="_blank" rel="external">一年成为Emacs高手</a></li>
+<li><a href="https://github.com/xiaohanyu/oh-my-emacs" target="_blank" rel="external">oh-my-emacs配置</a></li>
+<li><a href="http://melpa.org/#/" target="_blank" rel="external">MELPA插件源</a>，可以看看有哪些流行插件</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/one/" rel="tag">#one</a>
+          
+            <a href="/tags/Emacs/" rel="tag">#Emacs</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/23/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="Void Yu" />
+          <p class="site-author-name" itemprop="name">Void Yu</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#why-Emacs"><span class="nav-number">1.1.</span> <span class="nav-text">why Emacs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#why-THIS"><span class="nav-number">1.2.</span> <span class="nav-text">why THIS</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">2.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#版本及安装"><span class="nav-number">2.1.</span> <span class="nav-text">版本及安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#buffer和window"><span class="nav-number">2.2.</span> <span class="nav-text">buffer和window</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模式"><span class="nav-number">2.3.</span> <span class="nav-text">模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置"><span class="nav-number">2.4.</span> <span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本操作"><span class="nav-number">3.</span> <span class="nav-text">基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关闭Emacs"><span class="nav-number">3.1.</span> <span class="nav-text">关闭Emacs</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#光标移动"><span class="nav-number">3.2.</span> <span class="nav-text">光标移动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文本编辑——选择复制粘贴剪切删除"><span class="nav-number">3.3.</span> <span class="nav-text">文本编辑——选择复制粘贴剪切删除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查找"><span class="nav-number">3.4.</span> <span class="nav-text">查找</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#窗口分割"><span class="nav-number">3.5.</span> <span class="nav-text">窗口分割</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#buffer与file"><span class="nav-number">3.6.</span> <span class="nav-text">buffer与file</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置一个可编程工具——补全，跳转，引用"><span class="nav-number">4.</span> <span class="nav-text">配置一个可编程工具——补全，跳转，引用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#从CEDET说起"><span class="nav-number">4.1.</span> <span class="nav-text">从CEDET说起</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#company-mode"><span class="nav-number">4.2.</span> <span class="nav-text">company-mode</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Helm"><span class="nav-number">4.3.</span> <span class="nav-text">Helm</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#window-numbering"><span class="nav-number">4.4.</span> <span class="nav-text">window-numbering</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他特性"><span class="nav-number">4.5.</span> <span class="nav-text">其他特性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-插件管理"><span class="nav-number">5.</span> <span class="nav-text">5 插件管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#推荐"><span class="nav-number">6.</span> <span class="nav-text">推荐</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Void Yu</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar.display === 'post' || CONFIG.sidebar.display === 'always') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
