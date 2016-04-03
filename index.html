@@ -148,6 +148,16 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -206,6 +216,117 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/03/one-hadoop-debug-issue/" itemprop="url">
+                  一次Hadoop程序bug排查
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-03T15:33:43+08:00" content="2016-04-03">
+              2016-04-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Practice/" itemprop="url" rel="index">
+                    <span itemprop="name">Practice</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>我有一个非常简单的MR程序，会定时跑在团队的hadoop集群上。其主要功能，就是从数据源读取数据，然后写到我们的消息队列里去。</p>
+<p>但是在一次项目升级过程中，我们发现这个程序在跑某一份数据的时候，MR job出现了卡住的情况，会在Map阶段一直停在66%。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/03/one-hadoop-debug-issue/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/03/23/one-week-into-emacs/" itemprop="url">
                   一周成为Emacs新手
                 </a>
@@ -225,6 +346,25 @@
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/ONE/" itemprop="url" rel="index">
+                    <span itemprop="name">ONE</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -261,7 +401,7 @@
 <li><code>快速上手</code>——有清晰的配置说明文档，针对操作、插件</li>
 <li><code>功能清晰</code>——适应服务器cpp编程环境（补全，缩进，跳转，查找），能够兼容python的缩进（补全暂未着手实现）</li>
 </ul>
-<p>针对我这一个月的Emacs学习和使用情况，根据现有服务器线上环境，我自己配置了一个满足我的需求的Emacs编辑配置，见<a href="&#x6d;&#x61;&#105;&#108;&#116;&#111;&#x3a;&#x67;&#105;&#x74;&#64;&#x67;&#105;&#116;&#108;&#97;&#x62;&#46;&#97;&#x6c;&#105;&#x62;&#x61;&#x62;&#x61;&#x2d;&#105;&#110;&#x63;&#46;&#x63;&#x6f;&#109;&#58;&#x7a;&#104;&#x69;&#120;&#105;&#x61;&#x6f;&#46;&#121;&#x77;&#47;&#x65;&#109;&#97;&#x63;&#115;&#x2e;&#x64;&#46;&#103;&#105;&#116;">&#x67;&#105;&#x74;&#64;&#x67;&#105;&#116;&#108;&#97;&#x62;&#46;&#97;&#x6c;&#105;&#x62;&#x61;&#x62;&#x61;&#x2d;&#105;&#110;&#x63;&#46;&#x63;&#x6f;&#109;&#58;&#x7a;&#104;&#x69;&#120;&#105;&#x61;&#x6f;&#46;&#121;&#x77;&#47;&#x65;&#109;&#97;&#x63;&#115;&#x2e;&#x64;&#46;&#103;&#105;&#116;</a>，其主要理念是：</p>
+<p>针对我这一个月的Emacs学习和使用情况，根据现有服务器线上环境，我自己配置了一个满足我的需求的Emacs编辑配置，见<a href="&#x6d;&#97;&#x69;&#108;&#x74;&#x6f;&#x3a;&#x67;&#105;&#116;&#64;&#103;&#x69;&#116;&#x6c;&#x61;&#98;&#x2e;&#x61;&#x6c;&#x69;&#x62;&#x61;&#98;&#97;&#45;&#105;&#x6e;&#99;&#46;&#99;&#111;&#x6d;&#x3a;&#x7a;&#104;&#x69;&#x78;&#x69;&#97;&#x6f;&#46;&#x79;&#119;&#47;&#x65;&#109;&#97;&#99;&#x73;&#x2e;&#x64;&#46;&#103;&#105;&#x74;">&#x67;&#105;&#116;&#64;&#103;&#x69;&#116;&#x6c;&#x61;&#98;&#x2e;&#x61;&#x6c;&#x69;&#x62;&#x61;&#98;&#97;&#45;&#105;&#x6e;&#99;&#46;&#99;&#111;&#x6d;&#x3a;&#x7a;&#104;&#x69;&#x78;&#x69;&#97;&#x6f;&#46;&#x79;&#119;&#47;&#x65;&#109;&#97;&#99;&#x73;&#x2e;&#x64;&#46;&#103;&#105;&#x74;</a>，其主要理念是：</p>
 <ul>
 <li>用<code>尽可能少</code>的插件实现线上基本编程工具的基本功能</li>
 <li>能有清晰明了的说明文档(<code>本文</code>)，可以解释针对插件配置时为什么这么选和如何快速上手使用的问题。</li>
@@ -432,17 +572,24 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
