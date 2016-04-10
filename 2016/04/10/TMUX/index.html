@@ -64,9 +64,7 @@
 
 安装
 yum、apt-get等等都可以方便安装
-源码安装的话需要注意先安装libevent
-
-使用配置将相应的配置写入用户目录下.tmux.conf文件中，下面是我的一个基本配置">
+源码安装的话需要注意先安装libevent">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用TMUX">
 <meta property="og:url" content="http://viiyu.github.io/2016/04/10/TMUX/index.html">
@@ -78,10 +76,8 @@ yum、apt-get等等都可以方便安装
 
 安装
 yum、apt-get等等都可以方便安装
-源码安装的话需要注意先安装libevent
-
-使用配置将相应的配置写入用户目录下.tmux.conf文件中，下面是我的一个基本配置">
-<meta property="og:updated_time" content="2016-04-10T13:16:47.000Z">
+源码安装的话需要注意先安装libevent">
+<meta property="og:updated_time" content="2016-04-10T13:25:57.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用TMUX">
 <meta name="twitter:description" content="WHY
@@ -91,9 +87,7 @@ yum、apt-get等等都可以方便安装
 
 安装
 yum、apt-get等等都可以方便安装
-源码安装的话需要注意先安装libevent
-
-使用配置将相应的配置写入用户目录下.tmux.conf文件中，下面是我的一个基本配置">
+源码安装的话需要注意先安装libevent">
 
 
 
@@ -289,10 +283,71 @@ yum、apt-get等等都可以方便安装
 <li>yum、apt-get等等都可以方便安装</li>
 <li>源码安装的话需要注意先安装libevent</li>
 </ul>
+<a id="more"></a>
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>将相应的配置写入用户目录下<code>.tmux.conf</code>文件中，下面是我的一个基本配置，主要是把激活快捷键映射到更舒适的位置，因为我需要配合emacs使用，<code>C-b</code>经常要用到，于是重新绑定到<code>C-q</code>。然后将操作模式设置为emacs模式，这样在tmux选择窗口之类的场景下，可以使用emacs的快捷键进行操作。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>-<span class="keyword">option</span> -g prefix C-q</span><br><span class="line">unbind-<span class="keyword">key</span> C-q</span><br><span class="line">bind-<span class="keyword">key</span> C-q send-prefix</span><br><span class="line"></span><br><span class="line">setw -g <span class="keyword">mode</span>-<span class="keyword">keys</span> emacs</span><br></pre></td></tr></table></figure></p>
 <h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p>具体的功能可以看看man手册或者需要的时候上网查查，因此在这里只稍微提一下我比较常用的并能帮助大家快速上手的快捷键部分。</p>
 <h4 id="启动tmux"><a href="#启动tmux" class="headerlink" title="启动tmux"></a>启动tmux</h4><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tmux            <span class="comment">//开启一个新session</span></span><br><span class="line">tmux ls         <span class="comment">//列出当前存在的session，</span></span><br><span class="line">tmux <span class="built_in">attach</span>     <span class="comment">//重新连接到上一次退出的session中</span></span><br><span class="line">tmux <span class="built_in">attach</span> -t session_id     <span class="comment">//连接到指定的session_id中</span></span><br></pre></td></tr></table></figure>
-<h4 id="tmux常用快捷键"><a href="#tmux常用快捷键" class="headerlink" title="tmux常用快捷键"></a>tmux常用快捷键</h4><p>在tmux中，需要先使用快捷键激活控制台，然后才能使用tmux的功能快捷键。默认为<code>C-b</code>。<br>|按键|功能|备注|<br>|—|—|—|<br>|?|打开帮助文档||<br>|c|创建一个新的窗口|已打开窗口会显示在左下方，并用*标记当前窗口|<br>|n|切换到下一个窗口||<br>|p|切换到上一个窗口||<br>|w|选择窗口|若像我一样使用emacs的mode-key，则可使用C-n或C-p进行选择|<br>|数字键|选择窗口||<br>|x|关闭当前窗口||<br>|d|断开session|相当于退出tmux，可以使用tmux attach重新连接回来|<br>|[|进入copy-mode|在这个模式可以翻页，复制，快捷键与设定的mode-keys的模式相同|<br>|]|粘贴copy-mode中所选内容|</p>
+<h4 id="tmux常用快捷键"><a href="#tmux常用快捷键" class="headerlink" title="tmux常用快捷键"></a>tmux常用快捷键</h4><p>在tmux中，需要先使用快捷键激活控制台，然后才能使用tmux的功能快捷键。默认为<code>C-b</code>。</p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>功能</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>?</td>
+<td>打开帮助文档</td>
+<td></td>
+</tr>
+<tr>
+<td>c</td>
+<td>创建一个新的窗口</td>
+<td>已打开窗口会显示在左下方，并用*标记当前窗口</td>
+</tr>
+<tr>
+<td>n</td>
+<td>切换到下一个窗口</td>
+<td></td>
+</tr>
+<tr>
+<td>p</td>
+<td>切换到上一个窗口</td>
+<td></td>
+</tr>
+<tr>
+<td>w</td>
+<td>选择窗口</td>
+<td>若像我一样使用emacs的mode-key，则可使用C-n或C-p进行选择</td>
+</tr>
+<tr>
+<td>数字键</td>
+<td>选择窗口</td>
+<td></td>
+</tr>
+<tr>
+<td>x</td>
+<td>关闭当前窗口</td>
+<td></td>
+</tr>
+<tr>
+<td>d</td>
+<td>断开session</td>
+<td>相当于退出tmux，可以使用tmux attach重新连接回来</td>
+</tr>
+<tr>
+<td>[</td>
+<td>进入copy-mode</td>
+<td>在这个模式可以翻页，复制，快捷键与设定的mode-keys的模式相同</td>
+</tr>
+<tr>
+<td>]</td>
+<td>粘贴copy-mode中所选内容</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
