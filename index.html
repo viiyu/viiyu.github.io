@@ -216,6 +216,123 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/11/a-sed-feature-of-delimiter/" itemprop="url">
+                  a sed feature of delimiter
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-11T23:18:50+08:00" content="2016-04-11">
+              2016-04-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Practice/" itemprop="url" rel="index">
+                    <span itemprop="name">Practice</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>在一次使用sed结合shell参数对文本进行替换时，会报<code>bad flag in substitute command</code>之类错误。我只是简单的把一个文本中的目标字符串替换成bash脚本里定义的变量，写出来大概是这样一句：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed <span class="string">"s/path/<span class="variable">$&#123;local_path&#125;</span>/g"</span> tmp.log</span><br></pre></td></tr></table></figure>
+<p>其中，后来用别的方法尝试了几次，发现是因为在变量<code>${local_path}</code>中包含了’/‘。</p>
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>在sed的info里可以查到关于’s’命令中分隔符的描述：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">The syntax <span class="keyword">of</span> <span class="keyword">the</span> `s' (<span class="keyword">as</span> <span class="keyword">in</span> substitute) command <span class="keyword">is</span></span><br><span class="line">`s/REGEXP/REPLACEMENT/FLAGS'.  The `/' <span class="built_in">characters</span> may be uniformly</span><br><span class="line">replaced <span class="keyword">by</span> any other single <span class="built_in">character</span> within any <span class="keyword">given</span> `s' command.</span><br><span class="line">The `/' <span class="built_in">character</span> (<span class="keyword">or</span> whatever other <span class="built_in">character</span> <span class="keyword">is</span> used <span class="keyword">in</span> <span class="keyword">its</span> stead)</span><br><span class="line">can appear <span class="keyword">in</span> <span class="keyword">the</span> REGEXP <span class="keyword">or</span> REPLACEMENT only <span class="keyword">if</span> <span class="keyword">it</span> <span class="keyword">is</span> preceded <span class="keyword">by</span> a `\'</span><br><span class="line"><span class="built_in">character</span>.</span><br></pre></td></tr></table></figure>
+<p>这里已经说明的很清晰了，与s命令中分隔符相同的字符只能以转义的形式出现在匹配字符串或者替换字符串中。而跟在s后的任意单字节字符会作为分隔符。</p>
+<h2 id="其他：关于单引号和双引号"><a href="#其他：关于单引号和双引号" class="headerlink" title="其他：关于单引号和双引号"></a>其他：关于单引号和双引号</h2><ul>
+<li>单引号是强转义，将shell变量用在单引号里不会被当作一个变量，而会被当成文本</li>
+<li>双引号反之</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/10/TMUX/" itemprop="url">
                   使用TMUX
                 </a>
@@ -235,6 +352,25 @@
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/ONE/" itemprop="url" rel="index">
+                    <span itemprop="name">ONE</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -500,7 +636,7 @@
 <li><code>快速上手</code>——有清晰的配置说明文档，针对操作、插件</li>
 <li><code>功能清晰</code>——适应服务器cpp编程环境（补全，缩进，跳转，查找），能够兼容python的缩进（补全暂未着手实现）</li>
 </ul>
-<p>针对我这一个月的Emacs学习和使用情况，根据现有服务器线上环境，我自己配置了一个满足我的需求的Emacs编辑配置，见<a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#x6f;&#58;&#x67;&#x69;&#x74;&#x40;&#x67;&#x69;&#x74;&#x6c;&#x61;&#98;&#46;&#97;&#108;&#x69;&#98;&#97;&#x62;&#97;&#x2d;&#x69;&#110;&#99;&#46;&#x63;&#x6f;&#x6d;&#x3a;&#x7a;&#104;&#105;&#120;&#105;&#97;&#x6f;&#x2e;&#x79;&#x77;&#47;&#x65;&#109;&#x61;&#x63;&#115;&#46;&#x64;&#x2e;&#103;&#x69;&#x74;">&#x67;&#x69;&#x74;&#x40;&#x67;&#x69;&#x74;&#x6c;&#x61;&#98;&#46;&#97;&#108;&#x69;&#98;&#97;&#x62;&#97;&#x2d;&#x69;&#110;&#99;&#46;&#x63;&#x6f;&#x6d;&#x3a;&#x7a;&#104;&#105;&#120;&#105;&#97;&#x6f;&#x2e;&#x79;&#x77;&#47;&#x65;&#109;&#x61;&#x63;&#115;&#46;&#x64;&#x2e;&#103;&#x69;&#x74;</a>，其主要理念是：</p>
+<p>针对我这一个月的Emacs学习和使用情况，根据现有服务器线上环境，我自己配置了一个满足我的需求的Emacs编辑配置，见<a href="&#109;&#97;&#105;&#108;&#x74;&#111;&#58;&#103;&#105;&#116;&#x40;&#103;&#105;&#116;&#x6c;&#x61;&#x62;&#46;&#97;&#x6c;&#x69;&#98;&#97;&#x62;&#x61;&#45;&#x69;&#110;&#99;&#x2e;&#x63;&#111;&#109;&#58;&#122;&#x68;&#x69;&#x78;&#105;&#x61;&#111;&#46;&#121;&#x77;&#47;&#101;&#109;&#x61;&#x63;&#x73;&#x2e;&#100;&#46;&#103;&#105;&#x74;">&#103;&#105;&#116;&#x40;&#103;&#105;&#116;&#x6c;&#x61;&#x62;&#46;&#97;&#x6c;&#x69;&#98;&#97;&#x62;&#x61;&#45;&#x69;&#110;&#99;&#x2e;&#x63;&#111;&#109;&#58;&#122;&#x68;&#x69;&#x78;&#105;&#x61;&#111;&#46;&#121;&#x77;&#47;&#101;&#109;&#x61;&#x63;&#x73;&#x2e;&#100;&#46;&#103;&#105;&#x74;</a>，其主要理念是：</p>
 <ul>
 <li>用<code>尽可能少</code>的插件实现线上基本编程工具的基本功能</li>
 <li>能有清晰明了的说明文档(<code>本文</code>)，可以解释针对插件配置时为什么这么选和如何快速上手使用的问题。</li>
@@ -671,7 +807,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -688,7 +824,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
