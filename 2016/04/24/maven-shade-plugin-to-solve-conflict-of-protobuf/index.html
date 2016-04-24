@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="java,maven," />
 
 
 
@@ -57,19 +57,16 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="问题针对我们的服务，我们提供出了java sdk供用户使用。但是经常收到用户反馈有关google protobuf的Exception。这种Exception一般都是是由于protobuf不同版本的兼容性造成，主要表现是找不到相应的Method或者Class。为了解决这个问题，我们想要源码去依赖protobuf的包，但是直接去把源码放在项目里又有点麻烦，经过调研，选用了shade plugin。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://viiyu.github.io/2016/03/23/hello-world/index.html">
+<meta property="og:title" content="maven shade plugin to solve conflict of denpendency">
+<meta property="og:url" content="http://viiyu.github.io/2016/04/24/maven-shade-plugin-to-solve-conflict-of-protobuf/index.html">
 <meta property="og:site_name" content="Void">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-03-23T12:01:25.000Z">
+<meta property="og:description" content="问题针对我们的服务，我们提供出了java sdk供用户使用。但是经常收到用户反馈有关google protobuf的Exception。这种Exception一般都是是由于protobuf不同版本的兼容性造成，主要表现是找不到相应的Method或者Class。为了解决这个问题，我们想要源码去依赖protobuf的包，但是直接去把源码放在项目里又有点麻烦，经过调研，选用了shade plugin。">
+<meta property="og:updated_time" content="2016-04-24T15:09:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="maven shade plugin to solve conflict of denpendency">
+<meta name="twitter:description" content="问题针对我们的服务，我们提供出了java sdk供用户使用。但是经常收到用户反馈有关google protobuf的Exception。这种Exception一般都是是由于protobuf不同版本的兼容性造成，主要表现是找不到相应的Method或者Class。为了解决这个问题，我们想要源码去依赖protobuf的包，但是直接去把源码放在项目里又有点麻烦，经过调研，选用了shade plugin。">
 
 
 
@@ -87,7 +84,7 @@ Quick">
   };
 </script>
 
-  <title> Hello World | Void </title>
+  <title> maven shade plugin to solve conflict of denpendency | Void </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -217,7 +214,7 @@ Quick">
             
             
               
-                Hello World
+                maven shade plugin to solve conflict of denpendency
               
             
           </h1>
@@ -229,11 +226,30 @@ Quick">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-23T20:01:25+08:00" content="2016-03-23">
-              2016-03-23
+            <time itemprop="dateCreated" datetime="2016-04-24T22:43:48+08:00" content="2016-04-24">
+              2016-04-24
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Practice/" itemprop="url" rel="index">
+                    <span itemprop="name">Practice</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -256,15 +272,16 @@ Quick">
       
 
       
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>针对我们的服务，我们提供出了java sdk供用户使用。但是经常收到用户反馈有关google protobuf的Exception。这种Exception一般都是是由于protobuf不同版本的兼容性造成，主要表现是找不到相应的Method或者Class。为了解决这个问题，我们想要源码去依赖protobuf的包，但是直接去把源码放在项目里又有点麻烦，经过调研，选用了shade plugin。</p>
+<a id="more"></a>
+<h2 id="关于shade-plugin"><a href="#关于shade-plugin" class="headerlink" title="关于shade plugin"></a>关于shade plugin</h2><p>看官方wiki吧，我就不赘述了。用来解决冲突的大致原理，我理解感觉就是用shadePattern去把冲突的dependency package重命名，形成唯一的路径，并在打包时把相应源码打进去，然后在maven解依赖的时候就不会出现同名包冲突的问题。原理等我日后java知识精进了再来诌。</p>
+<ul>
+<li><a href="https://maven.apache.org/plugins/maven-shade-plugin/" target="_blank" rel="external">https://maven.apache.org/plugins/maven-shade-plugin/</a></li>
+</ul>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><ul>
+<li>重点关注下<code>pattern</code>和<code>shadePattern</code>这两个字段。<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-shade-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.4.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">phase</span>&gt;</span>package<span class="tag">&lt;/<span class="name">phase</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">goal</span>&gt;</span>shade<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--合包去掉原来包的依赖关系， shade过的jar作为项目默认的包 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">shadedArtifactAttached</span>&gt;</span>false<span class="tag">&lt;/<span class="name">shadedArtifactAttached</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- &lt;promoteTransitiveDependencies&gt;true&lt;/promoteTransitiveDependencies&gt; --&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- &lt;createDependencyReducedPom&gt;true&lt;/createDependencyReducedPom&gt; --&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- &lt;keepDependenciesWithProvidedScope&gt;false&lt;/keepDependenciesWithProvidedScope&gt; --&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 包含源代码发布jar --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">createSourcesJar</span>&gt;</span>true<span class="tag">&lt;/<span class="name">createSourcesJar</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">relocations</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">relocation</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">pattern</span>&gt;</span>com.google.protobuf<span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">shadedPattern</span>&gt;</span>com.alibaba.etao.igraph.com.google.protobuf<span class="tag">&lt;/<span class="name">shadedPattern</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">relocation</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">relocations</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactSet</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 这里必须是groupID对应的空间名，包含--&gt;</span></span><br><span class="line">                 <span class="tag">&lt;<span class="name">include</span>&gt;</span>com.google.protobuf<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 这里是不包含 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">excludes</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">artifactSet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 
       
     </div>
@@ -277,18 +294,26 @@ Quick">
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag">#java</a>
+          
+            <a href="/tags/maven/" rel="tag">#maven</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/04/11/a-sed-feature-of-delimiter/" rel="next" title="a sed feature of delimiter">
+                <i class="fa fa-chevron-left"></i> a sed feature of delimiter
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/23/one-week-into-emacs/" rel="prev" title="一周成为Emacs新手">
-                一周成为Emacs新手 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -407,7 +432,7 @@ Quick">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于shade-plugin"><span class="nav-number">2.</span> <span class="nav-text">关于shade plugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子"><span class="nav-number">3.</span> <span class="nav-text">例子</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

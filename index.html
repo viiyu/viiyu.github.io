@@ -216,6 +216,116 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/24/maven-shade-plugin-to-solve-conflict-of-protobuf/" itemprop="url">
+                  maven shade plugin to solve conflict of denpendency
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-24T22:43:48+08:00" content="2016-04-24">
+              2016-04-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Practice/" itemprop="url" rel="index">
+                    <span itemprop="name">Practice</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>针对我们的服务，我们提供出了java sdk供用户使用。但是经常收到用户反馈有关google protobuf的Exception。这种Exception一般都是是由于protobuf不同版本的兼容性造成，主要表现是找不到相应的Method或者Class。为了解决这个问题，我们想要源码去依赖protobuf的包，但是直接去把源码放在项目里又有点麻烦，经过调研，选用了shade plugin。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/24/maven-shade-plugin-to-solve-conflict-of-protobuf/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/04/11/a-sed-feature-of-delimiter/" itemprop="url">
                   a sed feature of delimiter
                 </a>
@@ -636,7 +746,7 @@
 <li><code>快速上手</code>——有清晰的配置说明文档，针对操作、插件</li>
 <li><code>功能清晰</code>——适应服务器cpp编程环境（补全，缩进，跳转，查找），能够兼容python的缩进（补全暂未着手实现）</li>
 </ul>
-<p>针对我这一个月的Emacs学习和使用情况，根据现有服务器线上环境，我自己配置了一个满足我的需求的Emacs编辑配置，见<a href="&#109;&#97;&#105;&#108;&#x74;&#111;&#58;&#103;&#105;&#116;&#x40;&#103;&#105;&#116;&#x6c;&#x61;&#x62;&#46;&#97;&#x6c;&#x69;&#98;&#97;&#x62;&#x61;&#45;&#x69;&#110;&#99;&#x2e;&#x63;&#111;&#109;&#58;&#122;&#x68;&#x69;&#x78;&#105;&#x61;&#111;&#46;&#121;&#x77;&#47;&#101;&#109;&#x61;&#x63;&#x73;&#x2e;&#100;&#46;&#103;&#105;&#x74;">&#103;&#105;&#116;&#x40;&#103;&#105;&#116;&#x6c;&#x61;&#x62;&#46;&#97;&#x6c;&#x69;&#98;&#97;&#x62;&#x61;&#45;&#x69;&#110;&#99;&#x2e;&#x63;&#111;&#109;&#58;&#122;&#x68;&#x69;&#x78;&#105;&#x61;&#111;&#46;&#121;&#x77;&#47;&#101;&#109;&#x61;&#x63;&#x73;&#x2e;&#100;&#46;&#103;&#105;&#x74;</a>，其主要理念是：</p>
+<p>针对我这一个月的Emacs学习和使用情况，根据现有服务器线上环境，我自己配置了一个满足我的需求的Emacs编辑配置，见<a href="&#109;&#97;&#x69;&#108;&#116;&#111;&#x3a;&#103;&#x69;&#116;&#x40;&#103;&#x69;&#116;&#108;&#97;&#x62;&#46;&#x61;&#108;&#105;&#x62;&#97;&#98;&#97;&#45;&#105;&#x6e;&#x63;&#x2e;&#99;&#x6f;&#109;&#58;&#122;&#x68;&#x69;&#x78;&#105;&#97;&#x6f;&#x2e;&#121;&#119;&#47;&#x65;&#109;&#97;&#x63;&#x73;&#46;&#x64;&#x2e;&#x67;&#x69;&#116;">&#103;&#x69;&#116;&#x40;&#103;&#x69;&#116;&#108;&#97;&#x62;&#46;&#x61;&#108;&#105;&#x62;&#97;&#98;&#97;&#45;&#105;&#x6e;&#x63;&#x2e;&#99;&#x6f;&#109;&#58;&#122;&#x68;&#x69;&#x78;&#105;&#97;&#x6f;&#x2e;&#121;&#119;&#47;&#x65;&#109;&#97;&#x63;&#x73;&#46;&#x64;&#x2e;&#x67;&#x69;&#116;</a>，其主要理念是：</p>
 <ul>
 <li>用<code>尽可能少</code>的插件实现线上基本编程工具的基本功能</li>
 <li>能有清晰明了的说明文档(<code>本文</code>)，可以解释针对插件配置时为什么这么选和如何快速上手使用的问题。</li>
@@ -807,7 +917,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -824,7 +934,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
