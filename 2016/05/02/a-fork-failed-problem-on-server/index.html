@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="tmux,shell,linux," />
+  <meta name="keywords" content="linux,cpp," />
 
 
 
@@ -57,37 +57,19 @@
 
 
 
-<meta name="description" content="WHY
-经常遭遇断线的窘境，tmux可以保存session内容，让断线重连后依然恢复到断线前的编辑状态
-单独使用iTerm之类的terminal增强工具做多窗口管理，还是略显不够
-不太适应screen这个工具，略显陈旧
-
-安装
-yum、apt-get等等都可以方便安装
-源码安装的话需要注意先安装libevent">
+<meta name="description" content="问题我们服务器上的一个服务无法正常运行，经过师兄排查，发现是使用fork去启动服务时，由于内存不足导致fork失败。于是，我做了一个小实验，去窥探一下fork的性能。
+分析123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051#include &amp;lt;unistd.h">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用TMUX">
-<meta property="og:url" content="http://viiyu.github.io/2016/04/10/TMUX/index.html">
+<meta property="og:title" content="a fork failed problem on server">
+<meta property="og:url" content="http://viiyu.github.io/2016/05/02/a-fork-failed-problem-on-server/index.html">
 <meta property="og:site_name" content="Void">
-<meta property="og:description" content="WHY
-经常遭遇断线的窘境，tmux可以保存session内容，让断线重连后依然恢复到断线前的编辑状态
-单独使用iTerm之类的terminal增强工具做多窗口管理，还是略显不够
-不太适应screen这个工具，略显陈旧
-
-安装
-yum、apt-get等等都可以方便安装
-源码安装的话需要注意先安装libevent">
-<meta property="og:updated_time" content="2016-04-11T15:20:43.000Z">
+<meta property="og:description" content="问题我们服务器上的一个服务无法正常运行，经过师兄排查，发现是使用fork去启动服务时，由于内存不足导致fork失败。于是，我做了一个小实验，去窥探一下fork的性能。
+分析123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051#include &amp;lt;unistd.h">
+<meta property="og:updated_time" content="2016-05-03T01:21:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用TMUX">
-<meta name="twitter:description" content="WHY
-经常遭遇断线的窘境，tmux可以保存session内容，让断线重连后依然恢复到断线前的编辑状态
-单独使用iTerm之类的terminal增强工具做多窗口管理，还是略显不够
-不太适应screen这个工具，略显陈旧
-
-安装
-yum、apt-get等等都可以方便安装
-源码安装的话需要注意先安装libevent">
+<meta name="twitter:title" content="a fork failed problem on server">
+<meta name="twitter:description" content="问题我们服务器上的一个服务无法正常运行，经过师兄排查，发现是使用fork去启动服务时，由于内存不足导致fork失败。于是，我做了一个小实验，去窥探一下fork的性能。
+分析123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051#include &amp;lt;unistd.h">
 
 
 
@@ -105,7 +87,7 @@ yum、apt-get等等都可以方便安装
   };
 </script>
 
-  <title> 使用TMUX | Void </title>
+  <title> a fork failed problem on server | Void </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -235,7 +217,7 @@ yum、apt-get等等都可以方便安装
             
             
               
-                使用TMUX
+                a fork failed problem on server
               
             
           </h1>
@@ -247,8 +229,8 @@ yum、apt-get等等都可以方便安装
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-10T20:21:23+08:00" content="2016-04-10">
-              2016-04-10
+            <time itemprop="dateCreated" datetime="2016-05-02T22:57:53+08:00" content="2016-05-02">
+              2016-05-02
             </time>
           </span>
 
@@ -261,8 +243,8 @@ yum、apt-get等等都可以方便安装
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/ONE/" itemprop="url" rel="index">
-                    <span itemprop="name">ONE</span>
+                  <a href="/categories/Practice/" itemprop="url" rel="index">
+                    <span itemprop="name">Practice</span>
                   </a>
                 </span>
 
@@ -293,80 +275,9 @@ yum、apt-get等等都可以方便安装
       
 
       
-        <h2 id="WHY"><a href="#WHY" class="headerlink" title="WHY"></a>WHY</h2><ul>
-<li>经常遭遇断线的窘境，tmux可以保存session内容，让断线重连后依然恢复到断线前的编辑状态</li>
-<li>单独使用iTerm之类的terminal增强工具做多窗口管理，还是略显不够</li>
-<li>不太适应screen这个工具，略显陈旧</li>
-</ul>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
-<li>yum、apt-get等等都可以方便安装</li>
-<li>源码安装的话需要注意先安装libevent</li>
-</ul>
-<a id="more"></a>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>将相应的配置写入用户目录下<code>.tmux.conf</code>文件中，下面是我的一个基本配置，主要是把激活快捷键映射到更舒适的位置，因为我需要配合emacs使用，<code>C-b</code>经常要用到，于是重新绑定到<code>C-q</code>。然后将操作模式设置为emacs模式，这样在tmux选择窗口之类的场景下，可以使用emacs的快捷键进行操作。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>-<span class="keyword">option</span> -g prefix C-q</span><br><span class="line">unbind-<span class="keyword">key</span> C-q</span><br><span class="line">bind-<span class="keyword">key</span> C-q send-prefix</span><br><span class="line"></span><br><span class="line">setw -g <span class="keyword">mode</span>-<span class="keyword">keys</span> emacs</span><br></pre></td></tr></table></figure></p>
-<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p>具体的功能可以看看man手册或者需要的时候上网查查，因此在这里只稍微提一下我比较常用的并能帮助大家快速上手的快捷键部分。</p>
-<h4 id="启动tmux"><a href="#启动tmux" class="headerlink" title="启动tmux"></a>启动tmux</h4><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tmux            <span class="comment">//开启一个新session</span></span><br><span class="line">tmux ls         <span class="comment">//列出当前存在的session，</span></span><br><span class="line">tmux <span class="built_in">attach</span>     <span class="comment">//重新连接到上一次退出的session中</span></span><br><span class="line">tmux <span class="built_in">attach</span> -t session_id     <span class="comment">//连接到指定的session_id中</span></span><br></pre></td></tr></table></figure>
-<h4 id="tmux常用快捷键"><a href="#tmux常用快捷键" class="headerlink" title="tmux常用快捷键"></a>tmux常用快捷键</h4><p>在tmux中，需要先使用快捷键激活控制台，然后才能使用tmux的功能快捷键。默认为<code>C-b</code>。</p>
-<table>
-<thead>
-<tr>
-<th>按键</th>
-<th>功能</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>?</td>
-<td>打开帮助文档</td>
-<td></td>
-</tr>
-<tr>
-<td>c</td>
-<td>创建一个新的窗口</td>
-<td>已打开窗口会显示在左下方，并用*标记当前窗口</td>
-</tr>
-<tr>
-<td>n</td>
-<td>切换到下一个窗口</td>
-<td></td>
-</tr>
-<tr>
-<td>p</td>
-<td>切换到上一个窗口</td>
-<td></td>
-</tr>
-<tr>
-<td>w</td>
-<td>选择窗口</td>
-<td>若像我一样使用emacs的mode-key，则可使用C-n或C-p进行选择</td>
-</tr>
-<tr>
-<td>数字键</td>
-<td>选择窗口</td>
-<td></td>
-</tr>
-<tr>
-<td>x</td>
-<td>关闭当前窗口</td>
-<td></td>
-</tr>
-<tr>
-<td>d</td>
-<td>断开session</td>
-<td>相当于退出tmux，可以使用tmux attach重新连接回来</td>
-</tr>
-<tr>
-<td>[</td>
-<td>进入copy-mode</td>
-<td>在这个模式可以翻页，复制，快捷键与设定的mode-keys的模式相同</td>
-</tr>
-<tr>
-<td>]</td>
-<td>粘贴copy-mode中所选内容</td>
-</tr>
-</tbody>
-</table>
+        <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>我们服务器上的一个服务无法正常运行，经过师兄排查，发现是使用fork去启动服务时，由于内存不足导致fork失败。于是，我做了一个小实验，去窥探一下fork的性能。</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;unistd.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;sys/sysinfo.h&gt;</span><br><span class="line"></span><br><span class="line">void printMemStat() &#123;</span><br><span class="line">    struct sysinfo si;</span><br><span class="line">    sysinfo(&amp;si);</span><br><span class="line">    printf("===\n");</span><br><span class="line">    printf("Total: %llu\n", si.totalram);</span><br><span class="line">    printf("Free : %llu\n", si.freeram);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    printf("before malloc\n");</span><br><span class="line">    printMemStat();</span><br><span class="line">    int x;</span><br><span class="line">    long len = 400000000;</span><br><span class="line">    char *array = (char *)malloc(len*sizeof(char));</span><br><span class="line">    long i = 0;</span><br><span class="line">    for (; i&lt;len; i++) &#123;</span><br><span class="line">        array[i] = 1;</span><br><span class="line">    &#125;</span><br><span class="line">    printf("\nbefore fork\n");</span><br><span class="line">    printMemStat();</span><br><span class="line">    int pid = fork();  //vfork()</span><br><span class="line">    if (pid==0) &#123;</span><br><span class="line">        /*child*/</span><br><span class="line">        printf("\nchild\n");</span><br><span class="line">        printMemStat();</span><br><span class="line">        i = 0;</span><br><span class="line">        for(; i&lt;len/2; i++)&#123;</span><br><span class="line">            array[i] = 2;</span><br><span class="line">        &#125;</span><br><span class="line">        printMemStat();</span><br><span class="line">        for (; i&lt;len; i++) &#123;</span><br><span class="line">            array[i] = 2;</span><br><span class="line">        &#125;</span><br><span class="line">        printMemStat();</span><br><span class="line">        // exit(0);</span><br><span class="line">    &#125; else if (pid &lt; 0) &#123;</span><br><span class="line">        printf("\nfork failed\n");</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        /*parent*/</span><br><span class="line">        sleep(10);</span><br><span class="line">        printf("\nparent\n");</span><br><span class="line">        printMemStat();</span><br><span class="line">    &#125;</span><br><span class="line">    free(array);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>##</p>
 
       
     </div>
@@ -381,11 +292,9 @@ yum、apt-get等等都可以方便安装
       
         <div class="post-tags">
           
-            <a href="/tags/tmux/" rel="tag">#tmux</a>
-          
-            <a href="/tags/shell/" rel="tag">#shell</a>
-          
             <a href="/tags/linux/" rel="tag">#linux</a>
+          
+            <a href="/tags/cpp/" rel="tag">#cpp</a>
           
         </div>
       
@@ -394,16 +303,16 @@ yum、apt-get等等都可以方便安装
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/03/one-hadoop-debug-issue/" rel="next" title="一次Hadoop程序bug排查">
-                <i class="fa fa-chevron-left"></i> 一次Hadoop程序bug排查
+              <a href="/2016/04/24/maven-shade-plugin-to-solve-conflict-of-protobuf/" rel="next" title="maven shade plugin to solve conflict of denpendency">
+                <i class="fa fa-chevron-left"></i> maven shade plugin to solve conflict of denpendency
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/11/a-sed-feature-of-delimiter/" rel="prev" title="a sed feature of delimiter">
-                a sed feature of delimiter <i class="fa fa-chevron-right"></i>
+              <a href="/2016/08/04/awk-separator/" rel="prev" title="awk分隔符小记">
+                awk分隔符小记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -472,7 +381,7 @@ yum、apt-get等等都可以方便安装
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -523,7 +432,7 @@ yum、apt-get等等都可以方便安装
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#WHY"><span class="nav-number">1.</span> <span class="nav-text">WHY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">3.1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快捷键"><span class="nav-number">3.2.</span> <span class="nav-text">快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#启动tmux"><span class="nav-number">3.2.1.</span> <span class="nav-text">启动tmux</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tmux常用快捷键"><span class="nav-number">3.2.2.</span> <span class="nav-text">tmux常用快捷键</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-number">2.</span> <span class="nav-text">分析</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
