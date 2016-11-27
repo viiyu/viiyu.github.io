@@ -216,6 +216,165 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/27/use-flatbuffers-in-practice-1/" itemprop="url">
+                  Use flatbuffers in practice 1 --- WHY
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-27T17:04:34+08:00" content="2016-11-27">
+              2016-11-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/practice/" itemprop="url" rel="index">
+                    <span itemprop="name">practice</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="开端"><a href="#开端" class="headerlink" title="开端"></a>开端</h2><p>我们线上实际运行的一个类似kv store的项目中，服务器与客户端之间的通信使用的是2.4.x的protocol buffers协议。当时在设计时，由于工期或者简便的目的，在数据传输时并没有区分数据字段的类型，而是统一采用了char array的形式。随着业务的发展扩大，现在用户所使用的数据量有了10倍的膨胀，在类型转换和protocol buffers序列化的过程中已经出现了明显性能热点，因此这期项目主要负责对这个热点进行性能优化。</p>
+<p>项目初期调研的过程中主要针对一种思路去进行选型：支持具有类型定义的结构化协议。简而言之，就是在每次传输过程中，可以根据传输的数据，来适配相应的数据类型。这一点是protobuffer2.4.x版本中所不具备的。因此最终选择在协议层进行改进。</p>
+<h2 id="协议对比"><a href="#协议对比" class="headerlink" title="协议对比"></a>协议对比</h2><p>主要调研了catnproto、protocol buffers(简称pb)、flatbuffers(简称fb)三种协议。由于catnproto并未找到很出名的工程应用，以及本着对google的信仰，就暂时没有进行深入考量。因此，选型对比主要集中pb2.6以及fb1.3中，主要原因在于其都支持类似Union的类型定义。为什么不用pb3.0，主要还是从稳定性进行考量。</p>
+<p>下面是在选型过程中双方的一些对比：</p>
+<ul>
+<li>fb不压缩数据会带来的数据膨胀，根据现有资料，大概会比pb膨胀20%左右，由于服务端使用万兆网卡，网络并不一定会成为瓶颈，但在使用客户端服务器(虚拟机)，这可能是一笔不小的开销，同时由于数据膨胀带来的网络传输消耗，也会对fb反序列化时的优势进行抵消</li>
+<li>fb 需要支持c++11的编译器才能编译，我们项目环境使用非c++11的机器(正在迁移c++11)</li>
+<li>pb 文档更充分，维护性更好</li>
+</ul>
+<p>由于网上资料大多含糊不清且跟我们的项目在应用场景上有差异，因此进行了代码对比，整体实现了一个具有Union的Record结构(具体代码可能设计保密协议就不贴了)，使用下来有如下几点比较：</p>
+<ol>
+<li>pb代码的可读性及使用都要优秀于fb，能够更快的上手及使用，这点可以从测试代码里明显的感受到</li>
+<li>pb的proto文件编写也更加简洁<ul>
+<li>简单的说就是fb的union不支持数组，因此具体类型的必须要定义到一个table里去<ul>
+<li>pb里oneof使用跟其他类型没有什么差别</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>在效率上，由于fb使用了地址偏移存储的方式，因此可以认为几乎没有序列化及反序列化时间。但是也会因此造成过高的数据膨胀。同时，对比了实际使用时相同数据的写入及读取时间，差别并没有序列化及反序列化那么大。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>size(byte)</th>
+<th>serialize(us)</th>
+<th>deserialize(us)</th>
+<th>total write(us)</th>
+<th>total read(us)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pb</td>
+<td>1120</td>
+<td>60.4</td>
+<td>72.181</td>
+<td>189.5</td>
+<td>193.7</td>
+</tr>
+<tr>
+<td>fb</td>
+<td>1748</td>
+<td>7.1</td>
+<td>0.076</td>
+<td>205.6</td>
+<td>94.198</td>
+</tr>
+</tbody>
+</table>
+<p>从上述比较，在实际使用的过程中，我更倾向于选择pb2.6，如果是独立的工程，我也会推荐用pb2.6去实现。但是由于我们系统中已经有了对pb2.4的依赖，且我们依赖的组件也有对pb2.4的依赖，于是，从工程可控性(跨团队交流成本过高)角度考虑，最终选用了依赖较少的fb。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/04/awk-separator/" itemprop="url">
                   awk分隔符小记
                 </a>
@@ -244,8 +403,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Pratice/" itemprop="url" rel="index">
-                    <span itemprop="name">Pratice</span>
+                  <a href="/categories/Practice/" itemprop="url" rel="index">
+                    <span itemprop="name">Practice</span>
                   </a>
                 </span>
 
@@ -853,7 +1012,7 @@
 <li><code>快速上手</code>——有清晰的配置说明文档，针对操作、插件</li>
 <li><code>功能清晰</code>——适应服务器cpp编程环境（补全，缩进，跳转，查找），能够兼容python的缩进（补全暂未着手实现）</li>
 </ul>
-<p>针对我这一个月的Emacs学习和使用情况，根据现有服务器线上环境，我自己配置了一个满足我的需求的Emacs编辑配置，见<a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#x6f;&#x3a;&#x67;&#x69;&#x74;&#x40;&#x67;&#105;&#116;&#108;&#x61;&#98;&#46;&#x61;&#x6c;&#x69;&#98;&#x61;&#x62;&#97;&#x2d;&#105;&#110;&#99;&#46;&#99;&#x6f;&#109;&#58;&#122;&#x68;&#x69;&#x78;&#x69;&#x61;&#x6f;&#46;&#121;&#119;&#47;&#x65;&#109;&#97;&#99;&#115;&#x2e;&#x64;&#x2e;&#103;&#105;&#116;">&#x67;&#x69;&#x74;&#x40;&#x67;&#105;&#116;&#108;&#x61;&#98;&#46;&#x61;&#x6c;&#x69;&#98;&#x61;&#x62;&#97;&#x2d;&#105;&#110;&#99;&#46;&#99;&#x6f;&#109;&#58;&#122;&#x68;&#x69;&#x78;&#x69;&#x61;&#x6f;&#46;&#121;&#119;&#47;&#x65;&#109;&#97;&#99;&#115;&#x2e;&#x64;&#x2e;&#103;&#105;&#116;</a>，其主要理念是：</p>
+<p>针对我这一个月的Emacs学习和使用情况，根据现有服务器线上环境，我自己配置了一个满足我的需求的Emacs编辑配置，见<a href="&#109;&#97;&#105;&#108;&#x74;&#111;&#58;&#x67;&#105;&#x74;&#x40;&#x67;&#x69;&#116;&#x6c;&#x61;&#98;&#46;&#97;&#x6c;&#105;&#98;&#x61;&#98;&#x61;&#45;&#105;&#x6e;&#x63;&#46;&#x63;&#x6f;&#109;&#x3a;&#x7a;&#x68;&#105;&#120;&#x69;&#97;&#x6f;&#46;&#121;&#119;&#x2f;&#101;&#x6d;&#97;&#99;&#115;&#46;&#x64;&#46;&#x67;&#x69;&#x74;">&#x67;&#105;&#x74;&#x40;&#x67;&#x69;&#116;&#x6c;&#x61;&#98;&#46;&#97;&#x6c;&#105;&#98;&#x61;&#98;&#x61;&#45;&#105;&#x6e;&#x63;&#46;&#x63;&#x6f;&#109;&#x3a;&#x7a;&#x68;&#105;&#120;&#x69;&#97;&#x6f;&#46;&#121;&#119;&#x2f;&#101;&#x6d;&#97;&#99;&#115;&#46;&#x64;&#46;&#x67;&#x69;&#x74;</a>，其主要理念是：</p>
 <ul>
 <li>用<code>尽可能少</code>的插件实现线上基本编程工具的基本功能</li>
 <li>能有清晰明了的说明文档(<code>本文</code>)，可以解释针对插件配置时为什么这么选和如何快速上手使用的问题。</li>
@@ -1024,7 +1183,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">8</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
